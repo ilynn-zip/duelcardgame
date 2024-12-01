@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://oqlry0l37pwd"]
+
+[ext_resource type="PackedScene" uid="uid://vhwegiqv4t7y" path="res://scenes/card.tscn" id="1_r1ndu"]
+[ext_resource type="PackedScene" uid="uid://dqtavxl77o6hq" path="res://scenes/player.tscn" id="2_7od4p"]
+[ext_resource type="PackedScene" uid="uid://chfhjf4av8rj6" path="res://scenes/deck.tscn" id="2_jhsf1"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_5tf7r"]
+
+[node name="Table" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, 0, 0)
+mesh = SubResource("QuadMesh_5tf7r")
+
+[node name="Card" parent="." instance=ExtResource("1_r1ndu")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.18758, 0.0674202, -0.139637)
+
+[node name="Deck" parent="." instance=ExtResource("2_jhsf1")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.01409, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_7od4p")]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965925, 0, -0.965925, 0.258819, 0, 3, 1)
