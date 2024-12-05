@@ -1,35 +1,46 @@
+class_name Deck
 extends Node3D
-
-@export var v_spacing : float = 0.05
 
 const CARD = preload("res://scenes/card.tscn")
 
+@onready var cards_count: Label3D = $CardsCount
+@onready var cards_case: Node3D = $CardsCase
+
 @onready var cards_type : Array[int] = [2, 2, 2, 3, 3, 4, 5]
-@onready var deck : Array[Node3D] = []
+@onready var deck : Array[Vector2] = []  # x - type, y - number_type
 
 func _ready() -> void:
 	create_deck()
 	shuffle_deck()
-	remove_card()
 	instantiate_deck()
-
-func instantiate_deck():
-	for card in deck:
-		self.add_child(card)
+	remove_card(cards_case.get_child(0))
+	
+	cards_count.text = str(get_deck_size())
 
 func create_deck():
-	var type : int = 0
-	for count in cards_type:
-		for number in count:
-			var card = CARD.instantiate()
-			card.type = type
-			card.number = count
-			card.position.z = type * v_spacing
-			deck.append(card)
-		type += 1
-
+	var count : int = 0
+	for type in cards_type:
+		for number in type:
+			deck.append(Vector2(count, type))
+		count += 1
+		
 func shuffle_deck():
 	deck.shuffle()
 	
-func remove_card():
-	deck.pop_back()
+func remove_card(card : Card) -> Vector2:
+	cards_case.remove_child(card)
+	cards_count.text = str(get_deck_size())
+	return deck.pop_back()
+	
+func instantiate_deck():
+	for card in deck:
+		var card_instance = CARD.instantiate()
+		card_instance.type = card.x
+		card_instance.number = card.y
+		cards_case.add_child(card_instance)
+		
+func get_deck_size() -> int:
+	return cards_case.get_child_count()
+
+func get_card(index: int = 0) -> Card:
+	return cards_case.get_child(index)

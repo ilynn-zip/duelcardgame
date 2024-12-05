@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_bqa4e"]
 size = Vector3(1.20514, 1.23187, 0.0424194)
 
-[node name="Card" type="Node3D"]
+[node name="Card" type="StaticBody3D"]
 script = ExtResource("1_nxi0n")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -28,7 +28,5 @@ text = "5
 font_size = 96
 outline_size = 32
 
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_bqa4e")

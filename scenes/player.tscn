@@ -1,4 +1,12 @@
-[gd_scene format=3 uid="uid://dqtavxl77o6hq"]
+[gd_scene load_steps=3 format=3 uid="uid://dqtavxl77o6hq"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_fskjx"]
+[ext_resource type="PackedScene" uid="uid://dc07ioqu6lay8" path="res://scenes/hand.tscn" id="2_ymdyl"]
 
 [node name="Player" type="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_fskjx")
+
+[node name="Hand" parent="." instance=ExtResource("2_ymdyl")]
+spread_angle = 12.0
+
+[node name="RayCast3D" type="RayCast3D" parent="."]

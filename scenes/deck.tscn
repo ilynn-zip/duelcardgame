@@ -4,3 +4,9 @@
 
 [node name="Deck" type="Node3D"]
 script = ExtResource("1_q33rx")
+
+[node name="CardsCount" type="Label3D" parent="."]
+text = "0"
+
+[node name="CardsCase" type="Node3D" parent="."]
+visible = false
