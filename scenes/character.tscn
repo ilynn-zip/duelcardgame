@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cn3cjkrb67fpa"]
 
-[node name="Character" type="Node3D"]
+[node name="Character" type="Node2D"]
 
-[node name="PlayerSide" type="Node3D" parent="."]
+[node name="PlayerSide" type="Node2D" parent="."]
 
-[node name="OpponentSide" type="Node3D" parent="."]
+[node name="OpponentSide" type="Node2D" parent="."]

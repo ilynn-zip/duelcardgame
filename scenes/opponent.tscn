@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://csh4xsxfs8akk"]
 
-[node name="Opponent" type="Node3D"]
+[node name="Opponent" type="Node2D"]
 
-[node name="ActionCase" type="Node3D" parent="."]
+[node name="ActionCase" type="Node2D" parent="."]
 
-[node name="CardsCase" type="Node3D" parent="."]
+[node name="CardsCase" type="Node2D" parent="."]
+visible = false

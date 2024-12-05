@@ -1,10 +1,10 @@
 class_name Deck
-extends Node3D
+extends Node2D
 
 const CARD = preload("res://scenes/card.tscn")
 
-@onready var cards_count: Label3D = $CardsCount
-@onready var cards_case: Node3D = $CardsCase
+@onready var cards_count: Label = $CardsCount
+@onready var cards_case: Node2D = $CardsCase
 
 @onready var cards_type : Array[int] = [2, 2, 2, 3, 3, 4, 5]
 @onready var deck : Array[Vector2] = []  # x - type, y - number_type
