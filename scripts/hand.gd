@@ -30,7 +30,7 @@ func draw_card(amount: int = 1):
 		var card = deck.get_card()
 		deck.remove_card(card)
 		card_case.add_child(card)
-		card.set_postion = draw_marker.position
+		card.set_postion(draw_marker.position)
 		cards_reposition()
 
 func remove_card():
